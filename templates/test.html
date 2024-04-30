@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioEmotionDetection</title>
+    <link rel="icon" href="static\img\test_favicon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightgrey;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-section {
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+            font-size: 24px; 
+        }
+
+        .header-section:hover {
+            color: #ccc;
+        }
+
+        .model-section {
+            background-color: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .model-description {
+            margin-bottom: 20px;
+        }
+
+        .model-image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .run-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .run-button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-section" onclick="window.location.href='/'">RECORD</div>
+        <div class="header-section" onclick="window.location.href='/test'">TEST</div>
+        <div class="header-section" onclick="window.location.href='/blog'">BLOG</div>
+        <div class="header-section" onclick="window.location.href='/people'">PEOPLE</div>
+    </header>
+    
+    <div class="model-section">
+        <div class="model-details">
+            <div class="model-name">CNN</div>
+            <div class="model-description">
+                Convolutional Neural Network (CNN) is a deep learning algorithm most commonly applied to analyzing visual imagery. It's widely used in image and video recognition tasks.
+            </div>
+        </div>
+        <div class="model-buttons">
+            <button class="run-button" onclick="runModel('CNN')">CNN Model</button>
+            <span class="result-field">Result</span>
+        </div>
+    </div>
+    
+    <div class="model-section">
+        <div class="model-details">
+            <div class="model-name">Random Forest</div>
+            <div class="model-description">
+                Random Forest is an ensemble learning method for classification, regression, and other tasks that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees.
+            </div>
+        </div>
+        <div class="model-buttons">
+            <button class="run-button" onclick="runModel('Random Forest')">Random Forest Model</button>
+            <span class="result-field">Result</span>
+        </div>
+    </div>
+    
+    <div class="model-section">
+        <div class="model-details">
+            <div class="model-name">XGBoost</div>
+            <div class="model-description">
+                XGBoost (Extreme Gradient Boosting) is an efficient implementation of gradient boosting for classification and regression problems. It is designed for speed and performance.
+            </div>
+        </div>
+        <div class="model-buttons">
+            <button class="run-button" onclick="runModel('XGBoost')">XGBoost Model</button>
+            <span class="result-field">Result</span>
+        </div>
+    </div>
+    
+    <div class="model-section">
+        <div class="model-details">
+            <div class="model-name">Naive Bayes</div>
+            <div class="model-description">
+                Naive Bayes is a simple probabilistic classifier based on applying Bayes' theorem with strong independence assumptions between the features.
+            </div>
+        </div>
+        <div class="model-buttons">
+            <button class="run-button" onclick="runModel('Naive Bayes')">Naive Bayes Model</button>
+            <span class="result-field">Result</span>
+        </div>
+    </div>
+    
+    <div class="model-section">
+        <div class="model-details">
+            <div class="model-name">KNN</div>
+            <div class="model-description">
+                KNN (K-Nearest Neighbors) is a simple, easy-to-implement, and versatile algorithm used for classification and regression tasks.
+            </div>
+        </div>
+        <div class="model-buttons">
+            <button class="run-button" onclick="runModel('KNN')">KNN Model</button>
+            <span class="result-field">Result</span>
+        </div>
+    </div>
+
+    <script>
+        function runModel(modelName) {
+            // Run  specified model and update  result field for  corresponding section
+            var modelSection;
+            var resultText;
+    
+            if (modelName === 'CNN') {
+                modelSection = document.querySelector('.model-section:nth-of-type(1)');
+                resultText = "CNN Model Result";
+            } else if (modelName === 'Random Forest') {
+                modelSection = document.querySelector('.model-section:nth-of-type(2)');
+                resultText = "Random Forest Model Result";
+            } else if (modelName === 'XGBoost') {
+                modelSection = document.querySelector('.model-section:nth-of-type(3)');
+                resultText = "XGBoost Model Result";
+            } else if (modelName === 'Naive Bayes') {
+                modelSection = document.querySelector('.model-section:nth-of-type(4)');
+                resultText = "Naive Bayes Model Result";
+            } else if (modelName === 'KNN') {
+                modelSection = document.querySelector('.model-section:nth-of-type(5)');
+                resultText = "KNN Model Result";
+            }
+    
+            var resultField = modelSection.querySelector('.result-field');
+            resultField.textContent = resultText;
+        }
+    </script>
+</body>
+</html>

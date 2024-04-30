@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static\img\medium_favicon.png" type="image/x-icon">
+    <title>BLOG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightgrey;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-section {
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+            font-size: 24px; /* Increase text size */
+        }
+
+        .header-section:hover {
+            color: #ccc;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .blog-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-section" onclick="window.location.href='/'">RECORD</div>
+        <div class="header-section" onclick="window.location.href='/test'">TEST</div>
+        <div class="header-section" onclick="window.location.href='/blog'">BLOG</div>
+        <div class="header-section" onclick="window.location.href='/people'">PEOPLE</div>
+    </header>
+
+    <div class="blog-container">
+        <h2 class="blog-title"><a href="https://ai.plainenglish.io/deep-dive-into-the-world-of-cnns-8cf22cd84e7" id="medium-link" target="_blank">Medium Blog Post</a></h2>
+        <div class="blog-content" id="medium-content">
+            Loading...
+        </div>
+    </div>
+    <script>
+        fetch('/fetch_blog_content')
+            .then(response => response.json())
+            .then(data => {
+                if (data.content) {
+                    document.getElementById('medium-content').innerHTML = data.content;
+                } else {
+                    console.error('Error fetching blog post:', data.error || 'Unknown error');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching blog post:', error);
+            });
+    </script>
+</body>
+</html>

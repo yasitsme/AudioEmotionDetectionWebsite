@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioEmotionDetection</title>
+    <link rel="icon" href="static\img\developers_favicon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightgrey;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-section {
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+            font-size: 24px; /* Increase text size */
+        }
+
+        .header-section:hover {
+            color: #ccc;
+        }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            background-color: #3e2525;
+            width: 95%;
+            height: 45%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .contact img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .contact-info {
+            flex-grow: 1;
+        }
+        .contact-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .contact-links a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+        .contact img.contact-icon {
+            width: 30px; 
+            height: auto;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-section" onclick="window.location.href='/'">RECORD</div>
+        <div class="header-section" onclick="window.location.href='/test'">TEST</div>
+        <div class="header-section" onclick="window.location.href='/blog'">BLOG</div>
+        <div class="header-section" onclick="window.location.href='/people'">PEOPLE</div>
+    </header>
+
+    <div id="viz">
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="YASIR HABIB">
+                <div class="contact-info">
+                    <div class="contact-name">YASIR HABIB</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="CALEB DEVON">
+                <div class="contact-info">
+                    <div class="contact-name">CALEB DEVON</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="SOURISH WAWDHANE">
+                <div class="contact-info">
+                    <div class="contact-name">SOURISH WAWDHANE</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="AMIRA MUSTAPAYEVA">
+                <div class="contact-info">
+                    <div class="contact-name">AMIRA MUSTAPAYEVA</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="ARYAN JAIN">
+                <div class="contact-info">
+                    <div class="contact-name">ARYAN JAIN</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="JIBRAN CUTLERYWALA">
+                <div class="contact-info">
+                    <div class="contact-name">JIBRAN CUTLERYWALA</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact">
+                <img src="static\img\profile.png" alt="SIDDHARTH BENOY">
+                <div class="contact-info">
+                    <div class="contact-name">SIDDHARTH BENOY</div>
+                    <div class="contact-links">
+                        <a href="https://github.com/person1" target="_blank">
+                            <img src="static/img/github.png" alt="GitHub" class="contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/person1" target="_blank">
+                            <img src="static/img/linkedin.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://example.com/x" target="_blank">
+                            <img src="static/img/twitter.png" alt="X" class="contact-icon">
+                        </a>
+                        <a href="https://instagram.com/person1" target="_blank">
+                            <img src="static/img/instagram.png" alt="Instagram" class="contact-icon">
+                        </a>
+                        <a href="mailto:person1@example.com">
+                            <img src="static/img/email.png" alt="Mail" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

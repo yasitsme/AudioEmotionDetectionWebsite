@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import os, requests
 
+from app.CNN_Predictor import run_predictor
+
+
 app = Flask(__name__)
 
 # Define the upload folder and allowed extensions
@@ -9,8 +12,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/run_function', methods=['POST'])
 def run():
-    res = "success"
-    return jsonify({"message": res})
+    res = run_predictor.test_prediction(app.config['UPLOAD_FOLDER'])
+    # res = "Hello"
+    return jsonify({"message": str(res)})
 
 # Function to ensure upload folder exists
 def ensure_upload_folder_exists():
@@ -20,7 +24,7 @@ def ensure_upload_folder_exists():
 ensure_upload_folder_exists()
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'wav'
+    return filename[-4:] == '.wav'
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -31,9 +35,10 @@ def upload_file():
     if file.filename == '':
         return jsonify({'error': 'No selected file'})
 
-    if file and allowed_file(file.filename):
+    if allowed_file(file.filename):
         filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        new_name = 'test.wav'
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], new_name))
         return jsonify({'message': 'File uploaded successfully', 'filename': filename})
     else:
         return jsonify({'error': 'Invalid file type'})

@@ -7,6 +7,11 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+@app.route('/run_function', methods=['POST'])
+def run():
+    res = "success"
+    return jsonify({"message": res})
+
 # Function to ensure upload folder exists
 def ensure_upload_folder_exists():
     if not os.path.exists(UPLOAD_FOLDER):

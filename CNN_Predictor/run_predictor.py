@@ -14,4 +14,5 @@ def get_prediction(image):
     
     return top3
 
-print(get_prediction(audio_to_img('test.wav')))
+def test_prediction():
+    print(get_prediction(audio_to_img('test.wav')))

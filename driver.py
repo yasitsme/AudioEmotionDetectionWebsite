@@ -61,7 +61,7 @@ def people():
 
 @app.route('/fetch_blog_content')
 def fetch_blog_content():
-    url = 'https://ai.plainenglish.io/deep-dive-into-the-world-of-cnns-8cf22cd84e7'  # Replace with your Medium blog post URL
+    url = 'https://medium.com/@yasirh002/unraveling-emotion-through-sound-adeecbc94eea'  # Replace with your Medium blog post URL
     response = requests.get(url)
     if response.status_code == 200:
         return jsonify({'content': response.text})
